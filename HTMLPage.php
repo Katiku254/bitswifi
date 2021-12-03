@@ -253,8 +253,22 @@ class HTMLPage {
                     <li class="active">
                         <a href="index.php">
                             <i class="fas fa-chart-bar"></i>Home</a>
-                    </li>
-                    <li>
+                    </li>';
+
+        if ($this->logged == 1) {
+            echo '
+                <li>
+                    <a href="buy_package.php">
+                        <i class="fas fa-map-marker-alt"></i>Buy Package</a>
+                </li> 
+                <li>
+                    <a href="calendar.html">
+                        <i class="fas fa-calendar-alt"></i>Invoices</a>
+                </li>
+            ';
+        }
+
+        echo        '<li>
                         <a href="about.php">
                             <i class="fas fa-table"></i>About Us</a>
                     </li>
@@ -266,29 +280,7 @@ class HTMLPage {
                         <a href="faq.php">
                             <i class="fas fa-copy"></i>FAQs</a>
                     </li>
-                    ';
-            
-        if ($this->logged == 1) {
-            echo '
-            <li>
-                <a href="calendar.html">
-                    <i class="fas fa-calendar-alt"></i>Invoices</a>
-            </li>
-            <li>
-                <a href="map.html">
-                    <i class="fas fa-map-marker-alt"></i>Buy Package</a>
-            </li>
-            <li class="has-sub">
-                <a class="js-arrow" href="#">
-                    <i class="fas fa-copy"></i>Available Packages</a>
-            </li>
-            <li class="has-sub">
-                <a class="js-arrow" href="#">
-                    <i class="fas fa-desktop"></i>Change Password</a>
-            </li>';
-        }
-                    
-        echo        '</ul>
+                </ul>
             </nav>
         </div>
         ';
@@ -494,27 +486,29 @@ class HTMLPage {
                         <thead>
                             <tr>
                                 <th>bundle internet</th>
-                                <th>decription</th>
+                                <th>description</th>
                             </tr>
                         </thead>
                         <tbody>
+                            
                             <tr>
-                                <td>1 GB Internet bundles @ Kshs 70</td>
+                            <td><a href="buy.php?bundle=1">1 GB Internet bundles @ Kshs 70</a></td>
                                 <td>1 GB Internet Bundle at speed of 4 mbps. Expires after 30 days</td>                                
                             </tr>
+                            
 
                             <tr>
-                                <td>2 GB Internet bundles @ Kshs 120</td>
+                                <td><a href="buy.php?bundle=2">2 GB Internet bundles @ Kshs 120</a></td>
                                 <td>2 GB Internet Bundle at speed of 4 mbps. Expires after 30 days</td>
                             </tr>
 
                             <tr>
-                                <td>3 GB Internet bundles @ Kshs 200</td>
+                                <td><a href="buy.php?bundle=3">3 GB Internet bundles @ Kshs 200</a></td>
                                 <td>3 GB Internet Bundle at speed of 4 mbps. Expires after 30 days</td>
                             </tr>
 
                             <tr>
-                                <td>10 GB Internet bundles @ Kshs 850</td>
+                                <td><a href="buy.php?bundle=4">10 GB Internet bundles @ Kshs 850</a></td>
                                 <td>10 GB Internet Bundle at speed of 4 mbps. Expires after 30 days</td>
                             </tr>
                         </tbody>
@@ -535,22 +529,22 @@ class HTMLPage {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Monthly 3mbs @ Kshs 1,500</td>
+                                <td><a href="buy.php?bundle=5">Monthly 3mbs @ Kshs 1,500</a></td>
                                 <td>You will access internet at speed of 3 mbps for 1 month</td>
                             </tr>
 
                             <tr>
-                                <td>Monthly 5mbs @ Kshs 2,000</td>
+                                <td><a href="buy.php?bundle=6">Monthly 5mbs @ Kshs 2,000</a></td>
                                 <td>You will access internet at speed of 5 mbps for 1 month</td>
                             </tr>
 
                             <tr>
-                                <td>Monthly 6mbs @ Kshs 2,700</td>
+                                <td><a href="buy.php?bundle=7">Monthly 6mbs @ Kshs 2,700</a></td>
                                 <td>You will access internet at speed of 6 mbps for 1 month</td>
                             </tr>
 
                             <tr>
-                                <td>Monthly 10 mbs @ Kshs 3,500</td>
+                                <td><a href="buy.php?bundle=8">Monthly 10 mbs @ Kshs 3,500</a></td>
                                 <td>You will access internet at speed of 10 mbps for 1 month</td>
                             </tr>
                             
@@ -574,12 +568,12 @@ class HTMLPage {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Weekly 1 mbs @ Kshs 500</td>
+                                <td><a href="buy.php?bundle=9">Weekly 1 mbs @ Kshs 500</a></td>
                                 <td>You will access internet at speed of 1 mbps for 1 week</td>                                
                             </tr>
 
                             <tr>
-                                <td>Weekly 2 mbs @ Kshs 1,000</td>
+                                <td><a href="buy.php?bundle=10">Weekly 2 mbs @ Kshs 1,000</a></td>
                                 <td>You will access internet at speed of 2 mbps for 1 week</td>
                             </tr>
 
@@ -601,17 +595,17 @@ class HTMLPage {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>1 hour 1mbs @ Kshs 20</td>
+                                <td><a href="buy.php?bundle=11">1 hour 1mbs @ Kshs 20</a></td>
                                 <td>You will access internet at speed of 1 mbps for 1 hour for a maximum of 1 day</td>
                             </tr>
 
                             <tr>
-                                <td>3 hours 1mbs @ Kshs 40</td>
+                                <td><a href="buy.php?bundle=12">3 hours 1mbs @ Kshs 40</a></td>
                                 <td>You will access internet at speed of 1 mbps for 3 hours for a maximum of 1 day</td>
                             </tr>
 
                             <tr>
-                                <td>Daily 1mbs @ Kshs 80</td>
+                                <td><a href="buy.php?bundle=13">Daily 1mbs @ Kshs 80</a></td>
                                 <td>You will access internet at speed of 1 mbps for 24 hours</td>
                             </tr>
 
