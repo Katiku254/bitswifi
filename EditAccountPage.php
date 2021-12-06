@@ -1,11 +1,12 @@
 <?php
+include "HomePage.php";
 
-include "HTMLPage.php";
+class EditAccountPage extends HomePage {
 
-class HomePage extends HTMLPage {
-    
-    function __construct($title) {
-        HTMLPage::__construct($title);
+    function __construct($title, $user_data) {
+        HomePage::__construct($title);
+        HomePage::setLogged(1);
+        HTMLPage::setUserData($user_data);
     }
 
     function printPage() {
@@ -17,19 +18,18 @@ class HomePage extends HTMLPage {
             <div class="page-container">';
         HTMLPage::printHeaderDesktop();
         $this->printMainContent();
-        //HTMLPage::printPackages();
+
         echo '</div>';
         HTMLPage::printFooter();       
     }
 
     function printMainContent() {
-        // print head of main content
         echo '
-            <!-- MAIN CONTENT-->
-            <div class="main-content">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-            ';
+        <!-- MAIN CONTENT-->
+        <div class="main-content">
+            <div class="section__content section__content--p30">
+                <div class="container-fluid">
+        ';
 
         // print content (row)
         echo '
@@ -38,59 +38,19 @@ class HomePage extends HTMLPage {
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Login / Register</h4>
+                        <h4>Edit Account</h4>
                     </div>
 
                     <div class="card-body card-block">
-                        
-                        <div  class="tab-content  pl-3 p-1" id="myTabContent">
-                            <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="home-tab">
-                                <form action="user_profile.php" method="post" class="form-horizontal">
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <label for="hf-email" class=" form-control-label">Phone</label>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="text" id="hf-email" name="phone" placeholder="Enter Phone..." class="form-control" required>
-                                            <span class="help-block"></span>
-                                        </div>
-                                    </div>
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <label for="hf-password" class=" form-control-label">Password</label>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="password" id="hf-password" name="password" placeholder="Enter Password..." class="form-control" required>
-                                            <span class="help-block"></span>
-                                        </div>
-                                    </div>
-
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <label for="hf-submit" class="form-control-label"></label>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <button type="submit" class="btn btn-primary btn-sm">
-                                                <i class="fa fa-dot-circle-o"></i>Submit
-                                            </button>
-                                            <span class="help-block">&nbsp;&nbsp;&nbsp;Forgot Password</span>
-                                        </div>
-                                    </div>
-
-                                </form>
-                            </div>
-
-                            
-
-                            <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="profile-tab">
-                                <form action="register.php" method="post" enctype="multipart/form-data" class="form-horizontal">
+                            <div id="register">
+                                <form action="edit_account.php?edit=1" method="post" enctype="multipart/form-data" class="form-horizontal">
                                 
                                 <div class="row form-group">
                                     <div class="col col-md-3">
                                         <label for="text-input" class=" form-control-label">First Name</label>
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        <input type="text" id="text-input" name="fname" placeholder="e.g. John" class="form-control" required>
+                                        <input type="text" id="text-input" name="fname" value="'.$this->user_data["fname"].'" class="form-control" required>
                                         <small class="form-text text-muted"></small>
                                     </div>
                                 </div>
@@ -100,7 +60,7 @@ class HomePage extends HTMLPage {
                                         <label for="text-input" class=" form-control-label">Last Name</label>
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        <input type="text" id="text-input" name="lname" placeholder="e.g. Doe" class="form-control" required>
+                                        <input type="text" id="text-input" name="lname" value="'.$this->user_data["lname"].'" class="form-control" required>
                                         <small class="form-text text-muted"></small>
                                     </div>
                                 </div>
@@ -110,8 +70,8 @@ class HomePage extends HTMLPage {
                                         <label for="text-input" class=" form-control-label">Phone Number</label>
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        <input type="text" id="text-input" name="phone" placeholder="07XX123456" class="form-control" required>
-                                        <small class="form-text text-muted"></small>
+                                        <input type="text" id="text-input" name="phone" value="'.$this->user_data["phone"].'" class="form-control" disabled="">
+                                        <small class="form-text text-muted">Due to anti-fraud and security reasons, to edit phone please <a href="contact.php">contact</a> Admin.</small>
                                     </div>
                                 </div>
                                 
@@ -120,7 +80,7 @@ class HomePage extends HTMLPage {
                                         <label for="email-input" class=" form-control-label">Email</label>
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        <input type="email" id="email-input" name="email" placeholder="e.g. johndoe@example.com" class="form-control" required>
+                                        <input type="email" id="email-input" name="email" value="'.$this->user_data["email"].'" class="form-control" required>
                                         <small class="help-block form-text"></small>
                                     </div>
                                 </div>
@@ -130,7 +90,7 @@ class HomePage extends HTMLPage {
                                         <label for="password-input" class=" form-control-label">Password</label>
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        <input type="password" id="password-input" name="password" placeholder="Password" class="form-control" required>
+                                        <input type="password" id="password-input" name="password" value="'.$this->user_data["password"].'" class="form-control" required>
                                         <small class="help-block form-text"></small>
                                     </div>
                                 </div>
@@ -140,7 +100,7 @@ class HomePage extends HTMLPage {
                                         <label for="password-input" class=" form-control-label">Confirm Password</label>
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        <input type="password" id="password-input" name="passwordC" placeholder="Password" class="form-control" required>
+                                        <input type="password" id="password-input" name="passwordC" value="'.$this->user_data["password"].'" class="form-control" required>
                                         <small class="help-block form-text">Please confirm your password</small>
                                     </div>
                                 </div>
@@ -169,29 +129,12 @@ class HomePage extends HTMLPage {
                                 </form>
                             </div>
                         </div>
-                                              
-
-                        
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-
-                            <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#login" role="tab" aria-controls="home" aria-selected="true">Login</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#register" role="tab" aria-controls="profile" aria-selected="true">Register</a>
-                            </li>
-                        
-                        </ul>
-
                     </div>
                 </div>
             </div>
 
             </div>
             ';
-
-        HTMLPage::printPackages();
 
         // print foot region (row)
         HTMLPage::printCopyright();
@@ -202,8 +145,6 @@ class HomePage extends HTMLPage {
                 </div>
             </div>
             ';
-
     }
 }
-
 ?>

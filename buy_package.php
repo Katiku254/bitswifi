@@ -1,5 +1,6 @@
 <?php
 include "BuyPackagePage.php";
+include "Functions.php";
 
 session_start();
 
@@ -8,6 +9,11 @@ if(!isset($_SESSION["user"])) {
 }
 
 $buy = new BuyPackagePage("Buy Package", $_SESSION["user"]);
-$buy->printPage();
+$fun = new Functions();
 
+if(isset($_GET["bundle"])) {
+    $row = $fun->getPackage($_GET["bundle"]);
+    $buy->setPageData(1, $row);
+}
+$buy->printPage();
 ?>

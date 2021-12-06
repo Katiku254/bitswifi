@@ -113,7 +113,7 @@ class HTMLPage {
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="index.html">
+                        <a class="logo" href="index.php">
                             Bitswifi
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
@@ -141,84 +141,36 @@ class HTMLPage {
             <div class="container-fluid">
                 <ul class="navbar-mobile__list list-unstyled">
                     <li>
-                        <a href="index.php">
+                        <a href="user_profile.php">
                             <i class="fas fa-chart-bar"></i>Home</a>
-                    </li>
-                    <li>
-                        <a href="about.php">
-                            <i class="fas fa-table"></i>About Us</a>
-                    </li>
-                    <li>
-                        <a href="contact.php">
-                            <i class="far fa-check-square"></i>Contact Us</a>
                     </li>';
 
         if ($this->logged == 1) {
-            echo 
-                    '<li>
-                        <a href="calendar.html">
-                            <i class="fas fa-calendar-alt"></i>Calendar</a>
-                    </li>
-                    <li>
-                        <a href="map.html">
-                            <i class="fas fa-map-marker-alt"></i>Maps</a>
-                    </li>
-                    <li class="has-sub">
-                        <a class="js-arrow" href="#">
-                            <i class="fas fa-copy"></i>Pages</a>
-                        <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                            <li>
-                                <a href="login.html">Login</a>
-                            </li>
-                            <li>
-                                <a href="register.html">Register</a>
-                            </li>
-                            <li>
-                                <a href="forget-pass.html">Forget Password</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="has-sub">
-                        <a class="js-arrow" href="#">
-                            <i class="fas fa-desktop"></i>UI Elements</a>
-                        <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                            <li>
-                                <a href="button.html">Button</a>
-                            </li>
-                            <li>
-                                <a href="badge.html">Badges</a>
-                            </li>
-                            <li>
-                                <a href="tab.html">Tabs</a>
-                            </li>
-                            <li>
-                                <a href="card.html">Cards</a>
-                            </li>
-                            <li>
-                                <a href="alert.html">Alerts</a>
-                            </li>
-                            <li>
-                                <a href="progress-bar.html">Progress Bars</a>
-                            </li>
-                            <li>
-                                <a href="modal.html">Modals</a>
-                            </li>
-                            <li>
-                                <a href="switch.html">Switchs</a>
-                            </li>
-                            <li>
-                                <a href="grid.html">Grids</a>
-                            </li>
-                            <li>
-                                <a href="fontawesome.html">Fontawesome Icon</a>
-                            </li>
-                            <li>
-                                <a href="typo.html">Typography</a>
-                            </li>
-                        </ul>
-                    </li>';
+            echo '
+                <li>
+                    <a href="buy_package.php">
+                        <i class="far fa-check-square"></i>Buy Package</a>
+                </li> 
+                <li>
+                    <a href="invoices.php">
+                        <i class="fas fa-table"></i>Invoices</a>
+                </li>';
         }
-        
+        echo '
+                <li>
+                    <a href="about.php">
+                        <i class="fas fa-calendar-alt"></i>About Us</a>
+                </li>
+                <li>
+                    <a href="contact.php">
+                        <i class="fas fa-map-marker-alt"></i>Contact Us</a>
+                </li>
+                
+                <li>
+                    <a href="faq.php">
+                        <i class="fas fa-copy"></i>FAQs</a>
+                </li>';
+                
         echo                   
             '
                 </ul>
@@ -251,7 +203,7 @@ class HTMLPage {
             <nav class="navbar-sidebar">
                 <ul class="list-unstyled navbar__list">
                     <li class="active">
-                        <a href="index.php">
+                        <a href="user_profile.php">
                             <i class="fas fa-chart-bar"></i>Home</a>
                     </li>';
 
@@ -259,22 +211,22 @@ class HTMLPage {
             echo '
                 <li>
                     <a href="buy_package.php">
-                        <i class="fas fa-map-marker-alt"></i>Buy Package</a>
+                        <i class="far fa-check-square"></i>Buy Package</a>
                 </li> 
                 <li>
-                    <a href="calendar.html">
-                        <i class="fas fa-calendar-alt"></i>Invoices</a>
+                    <a href="invoices.php">
+                        <i class="fas fa-table"></i>Invoices</a>
                 </li>
             ';
         }
 
         echo        '<li>
                         <a href="about.php">
-                            <i class="fas fa-table"></i>About Us</a>
+                            <i class="fas fa-calendar-alt"></i>About Us</a>
                     </li>
                     <li>
                         <a href="contact.php">
-                            <i class="far fa-check-square"></i>Contact Us</a>
+                            <i class="fas fa-map-marker-alt"></i>Contact Us</a>
                     </li>
                     <li>
                         <a href="faq.php">
@@ -432,7 +384,7 @@ class HTMLPage {
             <div class="account-wrap">
                 <div class="account-item clearfix js-item-menu">
                     <div class="image">
-                        <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                    <img src="profiles/'.$this->user_data["phone"].'.'.$this->user_data["imageName"].'" alt="'.$user_name.'" />
                     </div>
                     <div class="content">
                         <a class="js-acc-btn" href="#">'.$user_name.'</a>
@@ -441,29 +393,22 @@ class HTMLPage {
                         <div class="info clearfix">
                             <div class="image">
                                 <a href="#">
-                                    <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                    <img src="profiles/'.$this->user_data["phone"].'.'.$this->user_data["imageName"].'" alt="'.$user_name.'" />
                                 </a>
                             </div>
                             <div class="content">
                                 <h5 class="name">
                                     <a href="#">'.$user_name.'</a>
                                 </h5>
-                                <span class="email">'.$this->user_data["email"].'</span>
+                                <span class="email">'.$this->user_data["phone"].'</span>
                             </div>
                         </div>
                         <div class="account-dropdown__body">
                             <div class="account-dropdown__item">
-                                <a href="#">
+                                <a href="edit_account.php">
                                     <i class="zmdi zmdi-account"></i>Account</a>
                             </div>
-                            <div class="account-dropdown__item">
-                                <a href="#">
-                                    <i class="zmdi zmdi-settings"></i>Setting</a>
-                            </div>
-                            <div class="account-dropdown__item">
-                                <a href="#">
-                                    <i class="zmdi zmdi-money-box"></i>Billing</a>
-                            </div>
+                            
                         </div>
                         <div class="account-dropdown__footer">
                             <a href="logout.php">
@@ -492,23 +437,23 @@ class HTMLPage {
                         <tbody>
                             
                             <tr>
-                            <td><a href="buy.php?bundle=1">1 GB Internet bundles @ Kshs 70</a></td>
+                            <td><a href="buy_package.php?bundle=1">1 GB Internet bundles @ Kshs 70</a></td>
                                 <td>1 GB Internet Bundle at speed of 4 mbps. Expires after 30 days</td>                                
                             </tr>
                             
 
                             <tr>
-                                <td><a href="buy.php?bundle=2">2 GB Internet bundles @ Kshs 120</a></td>
+                                <td><a href="buy_package.php?bundle=2">2 GB Internet bundles @ Kshs 120</a></td>
                                 <td>2 GB Internet Bundle at speed of 4 mbps. Expires after 30 days</td>
                             </tr>
 
                             <tr>
-                                <td><a href="buy.php?bundle=3">3 GB Internet bundles @ Kshs 200</a></td>
+                                <td><a href="buy_package.php?bundle=3">3 GB Internet bundles @ Kshs 200</a></td>
                                 <td>3 GB Internet Bundle at speed of 4 mbps. Expires after 30 days</td>
                             </tr>
 
                             <tr>
-                                <td><a href="buy.php?bundle=4">10 GB Internet bundles @ Kshs 850</a></td>
+                                <td><a href="buy_package.php?bundle=4">10 GB Internet bundles @ Kshs 850</a></td>
                                 <td>10 GB Internet Bundle at speed of 4 mbps. Expires after 30 days</td>
                             </tr>
                         </tbody>
@@ -529,22 +474,22 @@ class HTMLPage {
                         </thead>
                         <tbody>
                             <tr>
-                                <td><a href="buy.php?bundle=5">Monthly 3mbs @ Kshs 1,500</a></td>
+                                <td><a href="buy_package.php?bundle=5">Monthly 3mbs @ Kshs 1,500</a></td>
                                 <td>You will access internet at speed of 3 mbps for 1 month</td>
                             </tr>
 
                             <tr>
-                                <td><a href="buy.php?bundle=6">Monthly 5mbs @ Kshs 2,000</a></td>
+                                <td><a href="buy_package.php?bundle=6">Monthly 5mbs @ Kshs 2,000</a></td>
                                 <td>You will access internet at speed of 5 mbps for 1 month</td>
                             </tr>
 
                             <tr>
-                                <td><a href="buy.php?bundle=7">Monthly 6mbs @ Kshs 2,700</a></td>
+                                <td><a href="buy_package.php?bundle=7">Monthly 6mbs @ Kshs 2,700</a></td>
                                 <td>You will access internet at speed of 6 mbps for 1 month</td>
                             </tr>
 
                             <tr>
-                                <td><a href="buy.php?bundle=8">Monthly 10 mbs @ Kshs 3,500</a></td>
+                                <td><a href="buy_package.php?bundle=8">Monthly 10 mbs @ Kshs 3,500</a></td>
                                 <td>You will access internet at speed of 10 mbps for 1 month</td>
                             </tr>
                             
@@ -568,12 +513,12 @@ class HTMLPage {
                         </thead>
                         <tbody>
                             <tr>
-                                <td><a href="buy.php?bundle=9">Weekly 1 mbs @ Kshs 500</a></td>
+                                <td><a href="buy_package.php?bundle=9">Weekly 1 mbs @ Kshs 500</a></td>
                                 <td>You will access internet at speed of 1 mbps for 1 week</td>                                
                             </tr>
 
                             <tr>
-                                <td><a href="buy.php?bundle=10">Weekly 2 mbs @ Kshs 1,000</a></td>
+                                <td><a href="buy_package.php?bundle=10">Weekly 2 mbs @ Kshs 1,000</a></td>
                                 <td>You will access internet at speed of 2 mbps for 1 week</td>
                             </tr>
 
@@ -595,17 +540,17 @@ class HTMLPage {
                         </thead>
                         <tbody>
                             <tr>
-                                <td><a href="buy.php?bundle=11">1 hour 1mbs @ Kshs 20</a></td>
+                                <td><a href="buy_package.php?bundle=11">1 hour 1mbs @ Kshs 20</a></td>
                                 <td>You will access internet at speed of 1 mbps for 1 hour for a maximum of 1 day</td>
                             </tr>
 
                             <tr>
-                                <td><a href="buy.php?bundle=12">3 hours 1mbs @ Kshs 40</a></td>
+                                <td><a href="buy_package.php?bundle=12">3 hours 1mbs @ Kshs 40</a></td>
                                 <td>You will access internet at speed of 1 mbps for 3 hours for a maximum of 1 day</td>
                             </tr>
 
                             <tr>
-                                <td><a href="buy.php?bundle=13">Daily 1mbs @ Kshs 80</a></td>
+                                <td><a href="buy_package.php?bundle=13">Daily 1mbs @ Kshs 80</a></td>
                                 <td>You will access internet at speed of 1 mbps for 24 hours</td>
                             </tr>
 
@@ -618,5 +563,16 @@ class HTMLPage {
         ';
     }
     
+    function printCopyright() {
+        echo '
+        <div class="row">
+            <div class="col-md-12">
+                <div class="copyright">
+                    <p>Copyright © 2021 Bitswifi.</p>
+                </div>
+            </div>
+        </div>
+        ';
+    }
 
 }

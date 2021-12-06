@@ -6,9 +6,7 @@ class User {
     var $phone;
     var $email;
     var $pword;
-    var $packageID = 0;
-    var $paymentID = 0;
-
+    
     function __construct ($fname, $lname, $phone, $email, $pword) {
         $this->fname = $fname;
         $this->lname = $lname;
@@ -17,14 +15,6 @@ class User {
         $this->pword = $pword;
     }
     
-    function setPackageID($packageID) {
-        $this->packageID = $packageID;
-    }
-
-    function setPaymentID($paymentID) {
-        $this->paymentID = $paymentID;
-    }
-
     function getLname() {
         return $this->lname;
     }
@@ -45,18 +35,10 @@ class User {
         return $this->pword;
     }
 
-    function getPackageID() {
-        return $this->packageID;
-    }
-
-    function getPaymentID() {
-        return $this->paymentID;
-    }
-
-    function getInsertQuery() {
-        return 'insert into user (ID, fname, lname, phone, email, password) VALUES(
+    function getInsertQuery($ext) {
+        return 'insert into user (ID, fname, lname, phone, email, password, imageName) VALUES(
             "", "'.$this->fname.'", "'.$this->lname.'", "'.$this->phone.'", "'.$this->email.'", "'
-            .$this->pword.'")';
+            .$this->pword.'", "'.$ext.'")';
     }
 
 }

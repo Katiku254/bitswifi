@@ -22,7 +22,8 @@ if(!isset($_SESSION["user"])) {
     }
 }
 
-$profile = new ProfilePage("Dashboard", $_SESSION["user"]);
+$invoices = $fun->getInvoices($_SESSION["user"]["ID"]);
+$profile = new ProfilePage("Home", $_SESSION["user"], $invoices);
 $profile->printPage();
 
 ?>

@@ -1,7 +1,7 @@
 <?php
 include "HomePage.php";
 
-$home = new HomePage("Home");
+$home = new HomePage("Bitswifi");
 $home->printPage();
 
 ?>
